@@ -18,8 +18,9 @@ namespace SportStore.Models
         [Required]
         [Range(0.1, double.MaxValue, ErrorMessage = "Введите положительное значение для цены")]
         [Column("Price")]
-        [MaxLength(8)]
+       // [MaxLength(8)]
         [Display(Name = "Цена")]
+
         public decimal Price { get; set; }
         [Required]
         [Column("Description", TypeName = "nvarchar(255)")]

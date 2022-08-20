@@ -10,6 +10,8 @@ namespace SportStore.Models
         [BindNever]
         public virtual ICollection<CartLine>? Lines { get; set; }
         [Required(ErrorMessage = "Пожалуйста введите имя")]
+        [BindNever]
+        public bool Shipped { get; set; }
         public string Name { get; set; }
         [Required(ErrorMessage = "Пожалуйста введите первую строчку адреса")]
         public string Line1 { get; set; }

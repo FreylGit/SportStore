@@ -7,5 +7,6 @@ namespace SportStore.Data.Repositories.Interfaces
         IQueryable<Product> Products { get;  }
         public void SaveProduct(Product product);
         public Task SaveProductAsync(Product product);
+        public Product DeleteProduct(int productId);   
     }
 }

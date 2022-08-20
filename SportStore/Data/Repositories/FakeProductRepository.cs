@@ -3,7 +3,7 @@ using SportStore.Models;
 
 namespace SportStore.Data.Repositories
 {
-    public class FakeProductRepository : IProductRepository
+    public class FakeProductRepository  /* IProductRepository*/
     {
         public IQueryable<Product> Products => new List<Product> {
             new Product{Name = "name1",Category="category",Price=123}
@@ -11,6 +11,7 @@ namespace SportStore.Data.Repositories
 
         public void SaveProduct(Product product)
         {
+            
             throw new NotImplementedException();
         }
 
@@ -19,4 +20,5 @@ namespace SportStore.Data.Repositories
             throw new NotImplementedException();
         }
     }
+   
 }

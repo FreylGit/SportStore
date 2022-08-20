@@ -53,7 +53,7 @@ namespace SportStore.Tests
 
             RedirectToActionResult result = controller.Checkout(new Order()) as RedirectToActionResult;
 
-            mock.Verify(m => m.SaveOrder(It.IsAny<Order>()), Times.Never);
+            mock.Verify(m => m.SaveOrder(It.IsAny<Order>()), Times.Once);
             Assert.Equal("Completed", result.ActionName);
         }
     }

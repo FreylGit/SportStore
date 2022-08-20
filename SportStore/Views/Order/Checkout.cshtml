@@ -8,31 +8,31 @@
 <form asp-action="Checkout" method="post">
     <h3>Ship to</h3>
     <div class="form-group">
-        <label>Name:</label><input asp-for="Name" class="form-control" />
+        <label>Имя:</label><input asp-for="Name" class="form-control" />
     </div>
-    <h3>Address</h3>
+    <h3>Адрес</h3>
     <div class="form-group">
-        <label>Line 1:</label><input asp-for="Line1" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Line 2 : </label><input asp-for="Line2" class = " form-control" />
+        <label>Пункт 1:</label><input asp-for="Line1" class="form-control" />
     </div>
     <div class="form-group">
-        <label>Line 3:</label><input asp-for="Line3" class="form-control" />
+        <label>Пункт 2 : </label><input asp-for="Line2" class=" form-control" />
     </div>
     <div class="form-group">
-        <label>City: </label><input asp-for="City" cclass="form-control" />
+        <label>Пункт 3:</label><input asp-for="Line3" class="form-control" />
     </div>
     <div class="form-group">
-        <label>State:</label><input asp-for="State" class="form-control" />
+        <label>Город: </label><input asp-for="City" class="form-control" />
     </div>
     <div class="form-group">
-        <label>Zip: </label><input asp-for="Zip" class = "form-control" />
+        <label>Область:</label><input asp-for="State" class="form-control" />
     </div>
     <div class="form-group">
-        <label>Country:</label><input asp-for="Country" class="form-control" />
+        <label>Индекс: </label><input asp-for="Zip" class = "form-control" />
     </div>
-    <h3>Options</h3>
+    <div class="form-group">
+        <label>Страна:</label><input asp-for="Country" class="form-control" />
+    </div>
+    <h3>Опции</h3>
     <div class="checkbox">
         <label>
             <input asp-for="GiftWrap" /> Добавить подарочную упаковку

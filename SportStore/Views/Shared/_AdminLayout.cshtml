@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SportStore.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <style>
+        .input-validation-error{border-color:red;background-color:#fee;}
+    </style>
+    </head>
+    <body class="m-1 p-1">
+    <div class="bg-info p-2 row">
+        <div class="col">
+            <h4>@ViewData["Title"]</h4>
+        </div>
+        <div class="col-2">
+            <a class="btn btn-sm btn-primary"
+               asp-action="Logout" asp-controller="Account">Выход</a>
+        </div>
+    </div>
+        <div class="btn-info p-2"><h4>@ViewData["Title"]</h4></div>
+        @if(TempData["message"]!=null){
+            <div class="alert alert-success">@TempData["message"]</div>
+        }
+        @RenderBody()
+    </body>
+</html>

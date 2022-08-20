@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using SportStore.Data;
 using SportStore.Data.Repositories;
 using SportStore.Data.Repositories.Interfaces;
@@ -13,6 +15,14 @@ builder.Services.AddTransient<IProductRepository, EFProductRepository>();
 builder.Services.AddTransient<IOrderRepository, EFOrderRepository>();
 builder.Services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+//Настройка Identity
+builder.Services.AddDbContext<ApplicationIdentityDbContext>(
+    options => options.UseSqlServer("Server=localhost;Database=Identity;Trusted_Connection=True;"));
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationIdentityDbContext>()
+    .AddDefaultTokenProviders();
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -26,8 +36,10 @@ app.UseStatusCodePages();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseSession();
-app.UseRouting();
+//app.UseAuthentication();
 
+app.UseRouting();
+app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
@@ -53,4 +65,5 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllerRoute(
         name: null, pattern: "{controller}/{action}/{id?}");
 });
+IdentitySeedData.EnsurePopulated(app);
 app.Run();
